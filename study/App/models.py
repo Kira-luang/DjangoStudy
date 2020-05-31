@@ -9,3 +9,4 @@ class Student(models.Model):
 
 class Item(models.Model):
     name = models.CharField(max_length=15)
+
