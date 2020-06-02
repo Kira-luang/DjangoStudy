@@ -1,3 +1,4 @@
+import datetime
 import random
 
 
@@ -11,7 +12,10 @@ class AOP:
 执行1:Browser->urls->views->models->databases->views->templates->response
 执行2:Browser->urls->views->templates->response
 
-process_request:在urls->views
+process_request(self,request):在执行views的时候被调用
+process_views(self,request,view_func,view_args,view_kwargs):在执行views之前被调用,也就是urls->views的过程
+process_template_response(self,request,response):views执行完后调用
+process_response(self,request,response):所有response返回浏览器之前
 '''
 
 # 2.AOP实现过程
@@ -26,4 +30,9 @@ process_request:在urls->views
 统计功能:获取/记录IP(浏览器)
 权重选择:黑/白名单
 实现反爬:搜索频率控制
+'''
+
+# 4.cache的加强认识(每分钟只能搜索10次)
+'''
+
 '''

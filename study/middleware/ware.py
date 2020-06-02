@@ -1,3 +1,4 @@
+import datetime
 import random
 
 from django.core.cache import cache
@@ -19,3 +20,13 @@ class MiddleWare(MiddlewareMixin):
             return HttpResponse('访问过于频繁')
         if request.path == '/app/hello/':
             cache.set('ip' , 'test' , timeout=5)
+        # 搜索频率加强控制每分钟10次
+        container = cache.get('time' , [])
+        now = datetime.datetime.now()
+        if container:
+            while (now - container[-1]).total_seconds() > 20:
+                container.pop()
+        container.insert(0 , now)
+        if len(container) > 10:
+            return HttpResponse('请求频繁')
+        cache.set('time' , container , timeout=60)
