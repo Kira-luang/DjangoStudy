@@ -19,6 +19,15 @@ process_response(self,request,response):所有response返回浏览器之前
 process_exception(self, request, exception):全web过程错误捕捉处理
 '''
 
+# 什么是跨域处理
+'''
+process_response应用场景
+跨域处理:当IP+端口不一致时,就是跨域
+实现跨域:在客户端伪装；服务器端添加属性,能允许所有域名访问
+
+统一处理:对response进行统一处理的时候
+'''
+
 # 2.AOP实现过程
 '''
 在项目里创建中间件的目录,在目录下创建一个py文件
