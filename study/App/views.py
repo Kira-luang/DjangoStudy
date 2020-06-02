@@ -13,3 +13,8 @@ def getmoney(request):
         return HttpResponse('GetMoney')
     else:
         return HttpResponse('抢不到')
+
+
+def error(request):
+    s = '1' + 5
+    return HttpResponse(s)

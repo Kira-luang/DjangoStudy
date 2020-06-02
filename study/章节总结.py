@@ -16,6 +16,7 @@ process_request(self,request):在执行views的时候被调用
 process_views(self,request,view_func,view_args,view_kwargs):在执行views之前被调用,也就是urls->views的过程
 process_template_response(self,request,response):views执行完后调用
 process_response(self,request,response):所有response返回浏览器之前
+process_exception(self, request, exception):全web过程错误捕捉处理
 '''
 
 # 2.AOP实现过程

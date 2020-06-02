@@ -7,4 +7,5 @@ urlpatterns = [
     path('admin/' , admin.site.urls) ,
     path('hello/' , views.hello) ,
     path('getmoney/' , views.getmoney) ,
+    path('error/' , views.error) ,
 ]
